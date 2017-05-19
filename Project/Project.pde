@@ -1,10 +1,10 @@
 Board board;
 Ghost ghost;
-Player player;
+public Player player;
 void setup()
 { 
   board  = new Board();
-  player = new Player(0,0,0,0,100,100);
+  player = new Player(0,0,0,0,50,50);
   background(51);
   fullScreen();
   //board.show();

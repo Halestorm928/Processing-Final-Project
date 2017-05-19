@@ -20,10 +20,10 @@ public class RectCollision //Fixed with Cam's help, and Sean's a nice person
   
   public boolean isColliding(RectCollision other) // THIS WORKS!!!!
   { // other = l2.x&y, r2.x&y (x1,y1)(x2,y2)
-    if(this.x1 > other.x2 || other.x1 > this.x2) //this  = l1.x&y, r1.x&y (x1,y1)(x2,y2)
+    if(this.x1 >= other.x2 || other.x1 >= this.x2) //this  = l1.x&y, r1.x&y (x1,y1)(x2,y2)
     {      return false;    }
     
-    if(this.y1 > other.y2 || other.y1 > this.y2)
+    if(this.y1 >= other.y2 || other.y1 >= this.y2)
     {      return false;    }
     
     else

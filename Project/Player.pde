@@ -14,35 +14,29 @@ public class Player
   
   void show()
   {
-    rect(this.x, this.y, 100, 100);
-    
-    
+    rect(this.x, this.y, 50, 50);        
   }
   void move(int direction)
   {
-    for(int i = 0; i <  1; i++)
-    { 
-      canMove = false;
-      if((board.colList[0] != null && !player.body.isColliding(board.colList[0] )))
-      {
-        canMove = true;
-        
-      }
-
+    
+    if(!board.anyoneTouchDisBooty()) // RENAME THIS
+    {
+      canMove = true;  
     }
-    //System.out.println(player.body.isColliding(board.colList[0] ));
+    
     if(canMove)
     {
        switch(direction)
        {
-         case 1: y--; break;
-         case 2: y++; break;
-         case 3: x--; break;
-         case 4: x++; break;
+         case 1: y-=4; break;
+         case 2: y+=4; break;
+         case 3: x-=4; break;
+         case 4: x+=4; break;
          default: break;
        }
        canMove = false;
        body.updateCol(x, y);
-     } 
+     }
+
   }
 }
