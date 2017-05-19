@@ -11,6 +11,19 @@ void draw()
 {
   //board.draw();
   ghost.draw();
-  if(keyPressed) if(key == 'b')
+  if(keyPressed) 
+  if(key == 'b')
+  {
   ghost.move(1);
+  }
+}
+
+void keyPressed()
+{
+  if(keycode==DOWN)
+}
+
+void keyReleased()
+{
+  
 }
