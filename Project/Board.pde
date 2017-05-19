@@ -2,26 +2,38 @@ public class Board
 {
   public int x,y,w,h;
   RectCollision[] colList;
+  //RectCollision[] isTurnList;
   
   public Board()
   {
     colList = new RectCollision[64];
+    //isTurnList = new RectCollision[256];
     
-    x = 500; y = 0; w = 100; h = 100;    
-    //rect(x,y,w,h);
+    //top border
+    x = 0; y = 0; w = 1336; h = 50;    
     colList[0] = new RectCollision(x,y,w,h);
     
+    //right border
+    x = 1336; y = 0; w = 50; h = 768;
+    colList[3] = new RectCollision(x,y,w,h);
+    
     x = 200; y = 200; w = 350; h = 50;
-    //rect(x,y,w,h);
     colList[1] = new RectCollision(x,y,w,h);
     
     x = 200; y = 300; w = 350; h = 50;
-    //rect(x,y,w,h);
     colList[2] = new RectCollision(x,y,w,h);
+    
+   
+    //isTurnList[0] =  new RectCollision(x,y,w,h);
   }
   void show()
   {
-    x = 500; y = 0; w = 100; h = 100;    
+    //top border
+    x = 0; y = 0; w = 1336; h = 50;    
+    rect(x,y,w,h);
+    
+    //right border
+    x = 1336; y = 0; w = 50; h = 768;
     rect(x,y,w,h);
     
     x = 200; y = 200; w = 350; h = 50;
@@ -29,6 +41,8 @@ public class Board
     
     x = 200; y = 300; w = 350; h = 50;
     rect(x,y,w,h);
+    
+    
   }
   
   public boolean anyoneTouchDisBooty()

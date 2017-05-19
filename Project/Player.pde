@@ -3,11 +3,12 @@ public class Player
   int x;
   int y;
   boolean canMove;
+  boolean stillMoving;
   RectCollision body;
   
   public Player(int x, int y, int xCol, int yCol, int wCol, int hCol)
   {
-    body = new RectCollision(xCol, yCol, wCol, hCol);
+    body = new RectCollision(width/2, height/2, wCol, hCol);
     this.x = x; this.y = y;
     canMove = false;
   }
@@ -16,7 +17,13 @@ public class Player
     rect(this.x, this.y, 50, 50);        
   }
   
-  
+  public void amIMovingAndNotTouchingDisBooty(int direction)
+  {
+    if(!board.anyoneTouchDisBooty())
+      {canMove = true; this.move(direction);}
+    
+    else canMove = false;
+  }
   
   
   void move(int direction)
