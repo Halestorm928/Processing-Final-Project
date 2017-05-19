@@ -1,14 +1,21 @@
-class RectCollision //Fixed with Cam's help, and Sean's a nice person
+public class RectCollision //Fixed with Cam's help, and Sean's a nice person
 {
 
   public PShape rect;
   public int[] tl, br;
-  public int x1, y1, x2, y2;
+  public int x1, y1, x2, y2, w, h;
+  
   public RectCollision(int x, int y, int w, int h)
   {
     rect = createShape(RECT, x, y, w, h);
     tl = new int[2]; br = new int[2];
     x1=x; y1=y; x2=x+w; y2=y+h;
+    this.w = w; this.h = h;
+  }
+  
+  public RectCollision()
+  {
+    rect = null;
   }
   
   public boolean isColliding(RectCollision other) // THIS WORKS!!!!
@@ -24,12 +31,18 @@ class RectCollision //Fixed with Cam's help, and Sean's a nice person
     return true;
     }
   }
+  
+  public void updateCol(int x, int y)
+  {
+    this.x1 = x; this.y1 = y;
+    x2=x+w; y2=y+h;
+  }
 }
 
-
+/*
 RectCollision r;
 RectCollision x;
-/*
+
 void setup()
 {
   background(128);

@@ -1,18 +1,14 @@
 public class Board
 {
-  void draw()
+  RectCollision[] colList;
+  public Board()
   {
-    rect(0,0,100,100);
-    rect(100,0,100,100);
-    rect(200,0,100,100);
-    rect(300,0,100,100);
-    rect(400,0,100,100);
+    colList = new RectCollision[64];
+  }
+  void show()
+  {
     rect(500,0,100,100);
-    rect(600,0,100,100);
-    rect(700,0,100,100);
-    rect(800,0,100,100);
-    rect(900,0,100,100);
-    rect(1000,0,100,100);
+    colList[0] = new RectCollision(500,0,100,100);
     
   }
   
