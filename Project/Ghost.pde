@@ -1,48 +1,4 @@
-public class Ghost 
+public class Ghost
 {
-  int x;
-  int y;
-  boolean canMove;
-  RectCollision body;
   
-  public Ghost(int x, int y, int xCol, int yCol, int wCol, int hCol)
-  {
-    body = new RectCollision(xCol, yCol, wCol, hCol);
-    this.x = x; this.y = y;
-    canMove = false;
-  }
-  
-  void show()
-  {
-    rect(this.x, this.y, 100, 100);
-    
-    
-  }
-  void move(int direction)
-  {
-    for(int i = 0; i <  1; i++)
-    { 
-      canMove = false;
-      if((board.colList[0] != null && !ghost.body.isColliding(board.colList[0] )))
-      {
-        canMove = true;
-        
-      }
-
-    }
-    //System.out.println(ghost.body.isColliding(board.colList[0] ));
-    if(canMove)
-    {
-       switch(direction)
-       {
-         case 1: x++; break;
-         case 2: x--; break;
-         case 3: y++; break;
-         case 4: y--; break;
-         default: break;
-       }
-       canMove = false;
-       body.updateCol(x, y);
-     } 
-  }
 }
