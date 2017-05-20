@@ -12,7 +12,6 @@ public class Player
   {
     body = new RectCollision(width/2, height/2, wCol-1, hCol-1);
     this.x = x; this.y = y;
-    canMove = false;
   }
   void show()
   {
@@ -21,7 +20,7 @@ public class Player
   
   void move(int direction)
   {
-    
+    /*
     if(!board.isTouchingWall())
     {
        switch(direction)
@@ -32,7 +31,6 @@ public class Player
          case 4: x+=1; break;
          default: break;
        }
-       canMove = false;
        body.updateCol(x, y);
     }
      if(board.isTouchingWall())
@@ -47,6 +45,21 @@ public class Player
        }
        body.updateCol(x,y);
      }
+     */
+     
+     if(!board.isgoingtoOverlap())
+     {
+       switch(direction)
+       {
+         case 1: y=1; break;
+         case 2: y+=1; break;
+         case 3: x-=1; break;
+         case 4: x+=1; break;
+         default: break;
+       }
+       body.updateCol(x,y);
+     }
+     /*
      if(board.isOLappingNode())
      {
        if(nList[0]!=null && nList[0].getDir()[0] == true && move == 1)
@@ -55,6 +68,7 @@ public class Player
        }
        
      }
+     */
 
   }
   

@@ -1,7 +1,7 @@
 Board board;
 Ghost ghost;
 public Player player;
-int direction = 4;
+int direction = 0;
 int storedDirection = 4;
 int move;
 void setup()
@@ -24,10 +24,10 @@ void draw()
 
 void keyPressed()
 {
-//if(key=='w') {direction = 1; storedDirection = 1; player.queueStore(storedDirection);}
- // if(key=='s') {direction = 2; storedDirection = 2; player.queueStore(storedDirection);}
-  //if(key=='a') {direction = 3; storedDirection = 3; player.queueStore(storedDirection);}
- // if(key=='d') {direction = 4; storedDirection = 4; player.queueStore(storedDirection);}
+if(key=='w') {direction = 1; storedDirection = 1; player.queueStore(storedDirection);}
+ if(key=='s') {direction = 2; storedDirection = 2; player.queueStore(storedDirection);}
+  if(key=='a') {direction = 3; storedDirection = 3; player.queueStore(storedDirection);}
+  if(key=='d') {direction = 4; storedDirection = 4; player.queueStore(storedDirection);}
 
   if(key=='k') move = 1;
 }
