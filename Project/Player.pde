@@ -2,15 +2,14 @@ public class Player
 {
   int x;
   int y;
-  int a;
-  int w;
+  int storedDirection;
   boolean canMove;
   boolean stillMoving;
   RectCollision body;
   
   public Player(int x, int y, int xCol, int yCol, int wCol, int hCol)
   {
-    body = new RectCollision(width/2, height/2, wCol, hCol);
+    body = new RectCollision(width/2, height/2, wCol-1, hCol-1);
     this.x = x; this.y = y;
     canMove = false;
   }
@@ -25,7 +24,7 @@ public class Player
       else
         fill(255,255,255);
         */
-    rect(this.x, this.y, 50, 50);        
+    rect(this.x, this.y, 49, 49);        
   }
   
   public void amIMovingAndNotTouchingDisBooty(int direction)
@@ -51,27 +50,38 @@ public class Player
       
        switch(direction)
        {
-         case 1: y-=4; break;
-         case 2: y+=4; break;
-         case 3: x-=4; break;
-         case 4: x+=4; break;
+         case 1: y-=1; break;
+         case 2: y+=1; break;
+         case 3: x-=1; break;
+         case 4: x+=1; break;
          default: break;
        }
        canMove = false;
        body.updateCol(x, y);
      }
-     while(board.anyoneTouchDisBooty())
+     if(board.anyoneTouchDisBooty())
      {
        switch(direction)
        {
-         case 1: y+=4; break;
-         case 2: y-=4; break;
-         case 3: x+=4; break;
-         case 4: x-=4; break;
+         case 1: y+=1; break;
+         case 2: y-=1; break;
+         case 3: x+=1; break;
+         case 4: x-=1; break;
          default: break;
        }
+       queueMove();
        body.updateCol(x,y);
      }
 
+  }
+  
+  void queueStore(int direction)
+  {
+    storedDirection=direction;
+  }
+  
+  void queueMove()
+  {
+    this.move(storedDirection);
   }
 }
