@@ -15,33 +15,13 @@ public class Player
   }
   void show()
   {
-    /*
-    a++;
-      if(a%17==0|| a%18 ==0)
-      {
-        fill(0,0,0);
-      }
-      else
-        fill(255,255,255);
-        */
     rect(this.x, this.y, 49, 49);        
   }
   
-  public void caniMove(int direction)
-  {
-    if(!board.isTouchingWall())
-      {canMove = true; this.move(direction);}
-    
-    else canMove = false;
-  }
-  
-  
   void move(int direction)
   {
-    if(canMove)
+    if(!board.isTouchingWall())
     {
-      
-      
        switch(direction)
        {
          case 1: y-=1; break;
@@ -52,7 +32,7 @@ public class Player
        }
        canMove = false;
        body.updateCol(x, y);
-     }
+    }
      if(board.isTouchingWall())
      {
        switch(direction)

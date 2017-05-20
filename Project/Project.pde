@@ -17,7 +17,7 @@ void draw()
   background(51);
   board.show();
   player.show(); 
-  player.caniMove(direction);
+  player.move(direction);
   
 }
 
