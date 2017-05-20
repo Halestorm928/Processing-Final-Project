@@ -75,7 +75,7 @@ public class Board
     
   }
   
-  public boolean anyoneTouchDisBooty()
+  public boolean isTouchingWall()
   {
     for(int i = 0; i < colList.length; i++)
     {

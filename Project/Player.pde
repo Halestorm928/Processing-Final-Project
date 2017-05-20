@@ -27,9 +27,9 @@ public class Player
     rect(this.x, this.y, 49, 49);        
   }
   
-  public void amIMovingAndNotTouchingDisBooty(int direction)
+  public void caniMove(int direction)
   {
-    if(!board.anyoneTouchDisBooty())
+    if(!board.isTouchingWall())
       {canMove = true; this.move(direction);}
     
     else canMove = false;
@@ -38,12 +38,6 @@ public class Player
   
   void move(int direction)
   {
-    
-    if(!board.anyoneTouchDisBooty()) // RENAME THIS
-    {
-      canMove = true;  
-    }
-    
     if(canMove)
     {
       
@@ -59,7 +53,7 @@ public class Player
        canMove = false;
        body.updateCol(x, y);
      }
-     if(board.anyoneTouchDisBooty())
+     if(board.isTouchingWall())
      {
        switch(direction)
        {
@@ -69,7 +63,6 @@ public class Player
          case 4: x-=1; break;
          default: break;
        }
-       queueMove();
        body.updateCol(x,y);
      }
 
