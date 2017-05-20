@@ -5,6 +5,7 @@ public class Player
   int storedDirection;
   boolean canMove;
   boolean stillMoving;
+  Node[] nList;
   RectCollision body;
   
   public Player(int x, int y, int wCol, int hCol)
@@ -45,6 +46,14 @@ public class Player
          default: break;
        }
        body.updateCol(x,y);
+     }
+     if(board.isOLappingNode())
+     {
+       if(nList[0]!=null && nList[0].getDir()[0] == true && move == 1)
+       {
+         player.move(1);
+       }
+       
      }
 
   }
