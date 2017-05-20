@@ -7,7 +7,7 @@ public class Player
   boolean stillMoving;
   RectCollision body;
   
-  public Player(int x, int y, int xCol, int yCol, int wCol, int hCol)
+  public Player(int x, int y, int wCol, int hCol)
   {
     body = new RectCollision(width/2, height/2, wCol-1, hCol-1);
     this.x = x; this.y = y;
@@ -20,6 +20,7 @@ public class Player
   
   void move(int direction)
   {
+    
     if(!board.isTouchingWall())
     {
        switch(direction)

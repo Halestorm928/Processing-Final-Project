@@ -6,7 +6,7 @@ int storedDirection = 0;
 void setup()
 { 
   board  = new Board();
-  player = new Player(width/2,height/2,0,0,50,50);
+  player = new Player(width/2,height/2,50,50);
   background(51);
   fullScreen();
   //board.show();

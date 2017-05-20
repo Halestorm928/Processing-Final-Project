@@ -4,19 +4,19 @@ public class Board
   PImage background;
   public int x,y,w,h;
   RectCollision[] colList;
+  Node[] nList;
   //RectCollision[] isTurnList;
   
   public Board()
   {
     background = loadImage("wacman_layout1.png");
     colList = new RectCollision[64];
-    //isTurnList = new RectCollision[256];
+    nList = new Node[64];
     
-    //top border
     //x = 0; y = 0; w = 1336; h = 50;    
     //colList[0] = new RectCollision(x,y,w,h);
     
-    colList[0] = new RectCollision((width/2)-150, (height/2)-50, 299,49);
+    colList[0] = new RectCollision(width/2-150, height/2-50, 299,49);
     colList[1] = new RectCollision(width/2, height/2+50, 199,49);
     colList[2] = new RectCollision(width/2-300, height/2-400, 599,49);//top
     colList[3] = new RectCollision(width/2-300, height/2-351, 49,750);//left
@@ -38,10 +38,8 @@ public class Board
     colList[19] = new RectCollision(width/2+150, height/2+150, 49,149);//
     colList[20] = new RectCollision(width/2-100, height/2+250, 199, 49);
     
+    nList[0] = new Node(width/2+150, height/2, 49,49, true, false, true, true);
     
-    
-   
-    //isTurnList[0] =  new RectCollision(x,y,w,h);
   }
   void show()
   {
@@ -72,7 +70,9 @@ public class Board
     rect(width/2+150, height/2+150, 49,149);
     rect(width/2-100, height/2+250, 199, 49);
     */
-    
+    fill(255, 0, 0);
+    rect(width/2+150, height/2, 49,49);
+    fill(255);
   }
   
   public boolean isTouchingWall()
@@ -80,6 +80,18 @@ public class Board
     for(int i = 0; i < colList.length; i++)
     {
       if(colList[i] != null && player.body.isColliding(colList[i]))
+      {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  public boolean isOLappingNode()
+  {
+    for(int i = 0; i < nList.length; i++)
+    {
+      if(nList[i] != null && nList[i].isOver(player.body))
       {
         return true;
       }
