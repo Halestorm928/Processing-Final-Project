@@ -2,6 +2,8 @@ public class Player
 {
   int x;
   int y;
+  int a;
+  int w;
   boolean canMove;
   boolean stillMoving;
   RectCollision body;
@@ -14,6 +16,15 @@ public class Player
   }
   void show()
   {
+    /*
+    a++;
+      if(a%17==0|| a%18 ==0)
+      {
+        fill(0,0,0);
+      }
+      else
+        fill(255,255,255);
+        */
     rect(this.x, this.y, 50, 50);        
   }
   
@@ -36,6 +47,8 @@ public class Player
     
     if(canMove)
     {
+      
+      
        switch(direction)
        {
          case 1: y-=4; break;

@@ -4,7 +4,6 @@ public Player player;
 int direction = 0;
 void setup()
 { 
-  
   board  = new Board();
   player = new Player(width/2,height/2,0,0,50,50);
   background(51);
