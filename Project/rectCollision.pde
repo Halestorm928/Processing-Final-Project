@@ -18,6 +18,13 @@ public class RectCollision //Fixed with Cam's help, and Sean's a nice person
     rect = null;
   }
   
+  public void show()
+  {
+    fill(0,0,255);
+    rect(x1,y1,w,h);
+    fill(255);
+  }
+  
   public boolean isColliding(RectCollision other) // THIS WORKS!!!!
   { // other = l2.x&y, r2.x&y (x1,y1)(x2,y2)
     if(this.x1 > other.x2 || other.x1 > this.x2) //this  = l1.x&y, r1.x&y (x1,y1)(x2,y2)
