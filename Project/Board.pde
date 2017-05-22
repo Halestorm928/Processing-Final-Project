@@ -5,7 +5,7 @@ public class Board
   public int x,y,w,h;
   RectCollision[] colList;
   Node[] nList;
-  RectCollision temp;
+  //RectCollision temp;
   //RectCollision[] isTurnList;
   
   public Board()
@@ -146,18 +146,18 @@ public class Board
     return false;
   }
   
-  public boolean isOLappingNode()
+  public int isOLappingNode()
   {
     for(int i = 0; i < nList.length; i++)
     {
-      if(nList[i] != null && nList[i].isOver(player.body))
+      if(nList[i] != null && nList[i].x1 == player.x && nList[i].y1 == player.y)//NullPointer expection
       {
-        return true;
+        return i;
       }
     }
-    return false;
+    return -1;
   }
-  
+  /*
   boolean isgoingtoOverlap() //this will try to prevent moving right on the
   {
     temp = new RectCollision(player.body.x1-50, player.body.y1, player.body.w, player.body.h);
@@ -179,6 +179,6 @@ public class Board
   
     return false;
   }
-  
+  */
   
 }

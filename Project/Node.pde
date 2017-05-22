@@ -16,7 +16,11 @@ public class Node extends RectCollision
   public Node(int x, int y, int w, int h)
   {
     super(x,y,w,h);
-    bools = new boolean[4];    
+    bools = new boolean[4]; 
+    for(int i = 0; i < bools.length; i++)
+    {
+      bools[i] = false;
+    }
     
   }
   public void setNeighbors(Node[] ne)
@@ -25,6 +29,38 @@ public class Node extends RectCollision
     for(int i = 0; i < neighbors.length; i++)
     {
       neighbors[i] = ne[i];
+    }
+    setValDir();
+  }
+  /*
+  public void getNeighbors()
+  {
+    neighbors = new Node[ne.length];
+    for(int i = 0; i < neighbors.length; i++)
+    {
+      neighbors[i] = ne[i];
+    }
+    setValDir();
+  }
+  */
+  public void setValDir()
+  {
+    
+    
+    for(int i = 0; i < neighbors.length; i++)
+    {
+      //Node neighbor = neighbors[i];
+      if(neighbors[i] != null)
+      {        
+        switch(i)
+        {
+          case 0: bools[0] = true; break;
+          case 1: bools[1] = true; break;
+          case 2: bools[2] = true; break;
+          case 3: bools[3] = true; break;
+        }
+      }
+      
     }
   }
   

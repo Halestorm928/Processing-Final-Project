@@ -1,5 +1,5 @@
-Board board;
-Ghost ghost;
+public Board board;
+public Ghost ghost;
 public Player player;
 int direction = 0;
 int storedDirection = 4;
@@ -8,6 +8,7 @@ void setup()
 { 
   board  = new Board();
   player = new Player(width/2,height/2,50,50);
+  player.getFirstNode();
   background(51);
   fullScreen();
   //board.show();
@@ -18,19 +19,19 @@ void draw()
   background(51);
   board.show();
   player.show(); 
-  player.move(direction);
+  player.moveToNode(direction);
   
 }
 
 void keyPressed()
-{
-if(key=='w') {direction = 1; storedDirection = 1; player.queueStore(storedDirection);}
- if(key=='s') {direction = 2; storedDirection = 2; player.queueStore(storedDirection);}
-  if(key=='a') {direction = 3; storedDirection = 3; player.queueStore(storedDirection);}
-  if(key=='d') {direction = 4; storedDirection = 4; player.queueStore(storedDirection);}
-
-  if(key=='k') move = 1;
-}
+  {
+    if(key=='w') {direction = 0; storedDirection = 0; player.moveToNode(direction);}
+    if(key=='s') {direction = 1; storedDirection = 1; player.moveToNode(direction);}
+    if(key=='a') {direction = 2; storedDirection = 2; player.moveToNode(direction);}
+    if(key=='d') {direction = 3; storedDirection = 3; player.moveToNode(direction);}
+  
+    //if(key=='k') move = 1;
+  }
 
 void keyReleased()
 {
