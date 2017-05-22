@@ -110,7 +110,7 @@ public class Board
     nList[24].setNeighbors(new Node[]{nList[21], null, nList[23], nList[25]});
     nList[25].setNeighbors(new Node[]{null, nList[28], nList[24], null});
     
-    nList[26].setNeighbors(new Node[]{nList[19], null, null, nList[227]});//Neighboring nodes from 7th line
+    nList[26].setNeighbors(new Node[]{nList[19], null, null, nList[27]});//Neighboring nodes from 7th line
     nList[27].setNeighbors(new Node[]{nList[23], null, nList[26], nList[28]});
     nList[28].setNeighbors(new Node[]{nList[25], null, nList[27], nList[29]});
     nList[29].setNeighbors(new Node[]{nList[22], null, nList[28], null});
