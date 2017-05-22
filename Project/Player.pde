@@ -22,6 +22,7 @@ public class Player
   {
     Node temp = getNodeAtPos();
     if(temp != null)    {      curNode = temp; curNode.setNeighbors(temp.neighbors);    }
+    else                {      curNode = board.nList[5];    }
   }
   
   public Node getNodeAtPos()
@@ -103,14 +104,32 @@ public class Player
   {
     Node moveToNode = null;
     
+    
+    for(int i = 0; i < curNode.neighbors.length; i++)
+    {
+      if(curNode.bools[i] == true && i == dir)
+      {
+        moveToNode = curNode.neighbors[i];
+        break;
+      }
+    }
+    return moveToNode;
+    /*
     if(curNode != null)
     {
       if(curNode.bools[0] == true && dir == 0)  {  moveToNode = curNode.neighbors[0];}
-      if(curNode.bools[1] == true && dir == 1)  {  moveToNode = curNode.neighbors[1];}
-      if(curNode.bools[2] == true && dir == 2)  {  moveToNode = curNode.neighbors[2];}
-      if(curNode.bools[3] == true && dir == 3)  {  moveToNode = curNode.neighbors[3];}    
+      else if(curNode.bools[1] == true && dir == 1)  {  moveToNode = curNode.neighbors[1];}
+      else if(curNode.bools[2] == true && dir == 2)  {  moveToNode = curNode.neighbors[2];}
+      else if(curNode.bools[3] == true && dir == 3)  {  moveToNode = curNode.neighbors[3];}    
     }
-    return moveToNode;
+    */
+    /*
+    else if(curNode == null)
+    {
+      moveToNode = board.nList[0];
+    }
+    */
+    //return moveToNode;
   }
   /*
   void queueStore(int direction)
