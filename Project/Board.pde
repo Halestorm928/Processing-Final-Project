@@ -157,28 +157,5 @@ public class Board
     }
     return -1;
   }
-  /*
-  boolean isgoingtoOverlap() //this will try to prevent moving right on the
-  {
-    temp = new RectCollision(player.body.x1-50, player.body.y1, player.body.w, player.body.h);
-    for(int i = 0; i<colList.length; i++)
-    {
-      if(colList[i]!= null && temp.x1 == colList[i].x1)
-      {
-        switch(direction)
-        {
-         case 1: player.y+=1; break;
-         case 2: player.y-=1; break;
-         case 3: player.x+=1; break;
-         case 4: player.x-=1; break;
-        }
-        player.body.updateCol(x,y);
-        return true;
-      }
-    }
-  
-    return false;
-  }
-  */
   
 }
