@@ -7,17 +7,20 @@ public class Player
   public Node curNode;
   RectCollision body;
   
+  
+  //CONSTRUCTOR
   public Player(int x, int y, int wCol, int hCol)
   {
     body = new RectCollision(width/2, height/2, wCol-1, hCol-1);
-    this.x = x; this.y = y;
-    
-    
-    
+    this.x = x; this.y = y;    
   }
+  //END CONSTUCTOR
   
+  //SHOW
   void show()  {    rect(this.x, this.y, 49, 49);          }
+  //END SHOW
   
+  //Start out on this node:
   public void getFirstNode()
   {
     Node temp = getNodeAtPos();
@@ -25,6 +28,7 @@ public class Player
     else                {      curNode = board.nList[5];    }
   }
   
+  //Check which node the player is at in global space,
   public Node getNodeAtPos()
   {
     int checker = board.isOLappingNode();
@@ -35,76 +39,24 @@ public class Player
     return null;
   }
   
-  
-  void keyPressed()
-  {
-    if(key=='w') {direction = 0; storedDirection = 0; moveToNode(direction);}
-    if(key=='s') {direction = 1; storedDirection = 1; moveToNode(direction);}
-    if(key=='a') {direction = 2; storedDirection = 2; moveToNode(direction);}
-    if(key=='d') {direction = 3; storedDirection = 3; moveToNode(direction);}
-  
-    //if(key=='k') move = 1;
-  }
-  
-  
+    
   void moveToNode(int dir)
   {
     Node moveToNode = canMove(dir);
-    if(moveToNode != null)  {player.x = moveToNode.x1;
-                             player.y = moveToNode.y1; 
-                             body.updateCol(x,y); 
-                             curNode = moveToNode;}
-  }
-  /*
-  void move(int direction)
-  {
-    
-    if(!board.isTouchingWall())
+    if(moveToNode != null)  
     {
-       switch(direction)
-       {
-         case 1: y-=1; break;
-         case 2: y+=1; break;
-         case 3: x-=1; break;
-         case 4: x+=1; break;
-         default: break;
-       }
-       body.updateCol(x, y);
+      player.x = moveToNode.x1;
+      player.y = moveToNode.y1; 
+      body.updateCol(x,y); 
+      curNode = moveToNode;
+      System.out.println("Player @ ("+ player.x + ", "+ player.y + ")");
     }
-     if(board.isTouchingWall())
-     {
-       switch(direction)
-       {
-         case 1: y+=1; break;
-         case 2: y-=1; break;
-         case 3: x+=1; break;
-         case 4: x-=1; break;
-         default: break;
-       }
-       body.updateCol(x,y);
-     }
-     
-     
-     if(!board.isgoingtoOverlap())
-     {
-       switch(direction)
-       {
-         case 1: y=1; break;
-         case 2: y+=1; break;
-         case 3: x-=1; break;
-         case 4: x+=1; break;
-         default: break;
-       }
-       body.updateCol(x,y);
-     }
-  
   }
-  */
+  
   Node canMove(int dir)
   {
     Node moveToNode = null;
-    
-    
+        
     for(int i = 0; i < curNode.neighbors.length; i++)
     {
       if(curNode.bools[i] == true && i == dir)
@@ -114,32 +66,7 @@ public class Player
       }
     }
     return moveToNode;
-    /*
-    if(curNode != null)
-    {
-      if(curNode.bools[0] == true && dir == 0)  {  moveToNode = curNode.neighbors[0];}
-      else if(curNode.bools[1] == true && dir == 1)  {  moveToNode = curNode.neighbors[1];}
-      else if(curNode.bools[2] == true && dir == 2)  {  moveToNode = curNode.neighbors[2];}
-      else if(curNode.bools[3] == true && dir == 3)  {  moveToNode = curNode.neighbors[3];}    
-    }
-    */
-    /*
-    else if(curNode == null)
-    {
-      moveToNode = board.nList[0];
-    }
-    */
-    //return moveToNode;
+    
   }
-  /*
-  void queueStore(int direction)
-  {
-    storedDirection=direction;
-  }
-  
-  void queueMove()
-  {
-    this.move(storedDirection);
-  }
-  */
+ 
 }
