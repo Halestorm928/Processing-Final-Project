@@ -73,7 +73,7 @@ public class Player
         player.y = curNode.y1;
         }
         
-        Node moveToNode = canMove(storedDir);
+        Node moveToNode = canMove(storedDir); // can move returns the valid neighbor in which we are moving
         
         if(moveToNode != null)
           direction = storedDir;
@@ -88,14 +88,15 @@ public class Player
           curNode = null;
         }
       }
-    }
-    switch(direction)
+      switch(direction)
     {
       case 0: y--; break;
       case 1: y++; break;
       case 2: x--; break;
       case 3: x++; break;
     }
+    }
+    
   }
   
   //THIS MOVES THE CHARACTER TO ONE OF THE POSSIBLE NEIGHBORING NODES  

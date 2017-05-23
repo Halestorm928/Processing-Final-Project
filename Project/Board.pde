@@ -39,7 +39,6 @@ public class Board
     colList[19] = new RectCollision(width/2+150, height/2+150, 49,149);//
     colList[20] = new RectCollision(width/2-100, height/2+250, 199, 49);
     */
-    //nList[0] = new Node(width/2+150, height/2, 49,49, true, false, true, true);
     
     nList[0] = new Node(width/2-250, height/2-350, 49,49);//top-line
     nList[1] = new Node(width/2-150, height/2-350, 49,49);

@@ -23,7 +23,8 @@ void setup()
 void draw()
 {
   background(51);
-  board.show();  
+  board.show();
+  player.curNode = player.getNodeAtPos();
   player.move();
   player.show(); 
   
