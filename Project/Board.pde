@@ -95,7 +95,7 @@ public class Board
     nList[12].setNeighbors(new Node[]{null, nList[17], nList[11], nList[13]});
     nList[13].setNeighbors(new Node[]{nList[7], null, nList[12], null});
     
-    nList[14].setNeighbors(new Node[]{null, nList[9], null, nList[15]});//Neighboring nodes from 4th line
+    nList[14].setNeighbors(new Node[]{null, nList[19], null, nList[15]});//Neighboring nodes from 4th line
     nList[15].setNeighbors(new Node[]{nList[9], null, nList[14], nList[16]});
     nList[16].setNeighbors(new Node[]{null, nList[20], nList[15], nList[17]});
     nList[17].setNeighbors(new Node[]{nList[12], null, nList[16], nList[18]});

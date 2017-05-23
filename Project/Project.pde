@@ -8,9 +8,10 @@ boolean checkRelease;
 void setup()
 { 
   checkRelease = true;
+  direction = 2;
   
   board  = new Board();
-  player = new Player(width/2,height/2,50,50);
+  player = new Player(board.nList[16].x1,board.nList[16].y1,50,50);
   
   player.getFirstNode();
   
@@ -22,24 +23,24 @@ void setup()
 void draw()
 {
   background(51);
-  board.show();
+  board.show();  
+  player.move();
   player.show(); 
+  
 }
 
 void keyPressed()
-  {
-    if(key=='w' && checkRelease) {direction = 0; player.moveToNode(direction); checkRelease = false;}
-    if(key=='s' && checkRelease) {direction = 1; player.moveToNode(direction); checkRelease = false;}
-    if(key=='a' && checkRelease) {direction = 2; player.moveToNode(direction); checkRelease = false;}
-    if(key=='d' && checkRelease) {direction = 3; player.moveToNode(direction); checkRelease = false;}
-  
-    //if(key=='k') move = 1;
-  }
+{
+  if(key=='w' && checkRelease) {direction = 0;  player.changePos(direction); checkRelease = false;}
+  if(key=='s' && checkRelease) {direction = 1;  player.changePos(direction); checkRelease = false;}
+  if(key=='a' && checkRelease) {direction = 2;  player.changePos(direction); checkRelease = false;}
+  if(key=='d' && checkRelease) {direction = 3;  player.changePos(direction); checkRelease = false;}  
+}
 
 void keyReleased()
 {
   if(key=='w') {checkRelease = true;}
   if(key=='s') {checkRelease = true;}
   if(key=='a') {checkRelease = true;}
-  else if(key=='d') {checkRelease = true;}
+  if(key=='d') {checkRelease = true;}
 }
