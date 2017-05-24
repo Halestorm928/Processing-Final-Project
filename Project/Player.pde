@@ -6,29 +6,22 @@ public class Player
   RectCollision body;
   
   
-  //CONSTRUCTOR
-  public Player(int x, int y, int wCol, int hCol)
+  
+  public Player(int x, int y, int wCol, int hCol) //CONSTRUCTOR
   {
     body = new RectCollision(width/2, height/2, wCol-1, hCol-1);
     this.x = x; this.y = y;  
     direction = 2;
     changePos(direction);
   }
-  //END CONSTUCTOR
   
-  
-  
-  //SHOW
   void show()  {    rect(this.x, this.y, 49, 49);          }
-  //END SHOW
   
-  //Start out on this node:
   public void getFirstNode()
   {
     Node temp = getNodeAtPos();
     if(temp != null)    {      curNode = temp; curNode.setNeighbors(temp.neighbors);    }
     else                {      curNode = board.nList[5];    }
-    //changePos(direction);
   }
   
   
@@ -37,10 +30,7 @@ public class Player
   public Node getNodeAtPos()
   {
     int checker = board.isOLappingNode();
-    if(checker != -1)
-    {
-      return board.nList[checker];
-    }
+    if(checker != -1) return board.nList[checker];
     return null;
   }
   
@@ -88,6 +78,8 @@ public class Player
           curNode = null;
         }
       }
+
+      //if(curNode == ) {changePos(storedDir); System.out.println("true");}
       switch(direction)
     {
       case 0: y--; break;
@@ -99,8 +91,8 @@ public class Player
     
   }
   
-  //THIS MOVES THE CHARACTER TO ONE OF THE POSSIBLE NEIGHBORING NODES  
-  public void moveToNode(int dir)
+  
+  public void moveToNode(int dir) //THIS MOVES THE CHARACTER TO ONE OF THE POSSIBLE NEIGHBORING NODES  
   {
     Node moveToNode = canMove(dir);
     if(moveToNode != null)  
@@ -113,30 +105,25 @@ public class Player
       System.out.println("Player @ ("+ player.x + ", "+ player.y + ")");
     }
   }
-  //THIS METHOD SUPPLEMENTS "void moveToNode(int dir)"
-  public Node canMove(int dir)
+  
+  public Node canMove(int dir) //THIS METHOD SUPPLEMENTS "void moveToNode(int dir)"
   {
     Node moveToNode = null;        
     for(int i = 0; i < curNode.neighbors.length; i++)
-    {
       if(curNode.bools[i] == true && i == dir)  {  moveToNode = curNode.neighbors[i];  break;  }
-    }
     return moveToNode;    
   }
-  // THIS METHOD WILL FIND OUT IF THE PLAYER HAS OVERSHOT THE TARGET NODE THY WERE GOING TO
-  public boolean overShotTarget()
+  
+  public boolean overShotTarget() // THIS METHOD WILL FIND OUT IF THE PLAYER HAS OVERSHOT THE TARGET NODE THEY WERE GOING TO
   {
     float nodeToTarget = lengthFromNode (targetNode.x1, targetNode.y1);
     float nodeToSelf = lengthFromNode (player.x, player.y);
-  
     return nodeToSelf > nodeToTarget;
   }
-  //THIS METHOD FINDS OUT THE LENGTH BEWTEEN THE PREVIOUS NODE AND THE TARGET POSITION OF THE NEXT NODE
-  public float lengthFromNode (int x, int y)
+  public float lengthFromNode (int x, int y) //THIS METHOD FINDS OUT THE LENGTH BEWTEEN THE PREVIOUS NODE AND THE TARGET POSITION OF THE NEXT NODE
   {
     int tempX = x - prevNode.x1;
     int tempY = y - prevNode.y1;
-    
     return sqrt(abs(sq(tempX)+sq(tempY)));
   }
 }
