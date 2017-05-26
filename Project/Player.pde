@@ -57,7 +57,7 @@ public class Player
     {
       if(overShotTarget())
       {
-        if(curNode != null)
+       if(curNode != null)
         {
         player.x = curNode.x1;
         player.y = curNode.y1;
@@ -82,10 +82,10 @@ public class Player
       //if(curNode == ) {changePos(storedDir); System.out.println("true");}
       switch(direction)
     {
-      case 0: y--; break;
-      case 1: y++; break;
-      case 2: x--; break;
-      case 3: x++; break;
+      case 0: y-=1; break;
+      case 1: y+=1; break;
+      case 2: x-=1; break;
+      case 3: x+=1; break;
     }
     }
     
@@ -118,12 +118,14 @@ public class Player
   {
     float nodeToTarget = lengthFromNode (targetNode.x1, targetNode.y1);
     float nodeToSelf = lengthFromNode (player.x, player.y);
+    
     return nodeToSelf > nodeToTarget;
   }
   public float lengthFromNode (int x, int y) //THIS METHOD FINDS OUT THE LENGTH BEWTEEN THE PREVIOUS NODE AND THE TARGET POSITION OF THE NEXT NODE
   {
     int tempX = x - prevNode.x1;
     int tempY = y - prevNode.y1;
+    
     return sqrt(abs(sq(tempX)+sq(tempY)));
   }
 }
